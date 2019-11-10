@@ -13,9 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# URL django: onde são configuradas as rotas de URL (é definido que classe de view vai ser chamada quando uma URL é digitada no navegador)
+
+
+# Seção de importação de classes
 from django.contrib import admin
 from django.urls import path
+from core.views import HomeView
 
+
+# Lista de URLS
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), # URL do admin
+    path('', HomeView.as_view(), name = 'base'), # URL base. Nela será chamada a classe da view Home
 ]

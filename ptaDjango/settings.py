@@ -30,13 +30,17 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Lista de aplicativos do sistema
 INSTALLED_APPS = [
+    # Apps padrão do django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Apps do projeto
     'core',
 ]
 
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'ptaDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # Indica o diretório onde os templates estão
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Indicação de onde estão os arquivos estáticos do projeto
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]

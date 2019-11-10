@@ -1,0 +1,31 @@
+<!--Template django: onde as informações são carregadas e exibidas para o usuário-->
+
+<!--A linguagem de template de django utiliza, basicamente, 2 tipos de comando:
+1. As tags de bloco, isto é, comandos lógicos (for, if)
+2. As variáveis, ou seja, valores a serem inseridos na página-->
+
+{% load static %} <!--Carrega os arquivos estáticos do django, para que possa ser acessado pela página-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"> <!--Carrega o arquivo de CSS 'home.css', que está na pasta static, dentro da pasta 'css'-->
+    <title>Treinamento PTA</title>
+</head>
+<body>
+    <h1>Treinamento PTA</h1>
+
+    {% for pessoa in pessoas %} <!--Inicia um laço que itera sobre o array de pessoas enviado como contexto pela view-->
+    <h2>Nome: {{ pessoa.name }}</h2><!--Para cada item de pessoas, será exibido o nome e cpf (as chaves duplas indicam que será exibida uma variável)-->
+    <p>CPF: {{ pessoa.cpf }}</p>
+
+    {% if pessoa.email %} <!--Estrutura condicional que só renderiza o HTML de dentro da tag caso a condição seja verdadeira-->
+    <p>E-mail: {{ pessoa.email }}</p> <!--Se o e-mail não for vazio, será exibido o texto Email e a varável com o e-mail da pessoa (item)-->
+    {% endif %} <!--Fim da estrutura condicional-->
+
+    {% endfor %}<!--Finaliza o laço-->
+
+</body>
+</html>
