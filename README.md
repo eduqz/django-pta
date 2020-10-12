@@ -1,6 +1,6 @@
 # [PTA] Treinamento de Django
 
-Projeto desenvolvido durante o treinamento de Django do Processo de Trainee por Área (PTA) do CITi.
+Projeto desenvolvido durante o treinamento de Django do Processo de Trainee por Área (PTA) do CITi de 2019.2.
 
 ## Como rodar o projeto
 Após clonar o repositório, em seu diretório raiz siga o passo a passo a seguir.
